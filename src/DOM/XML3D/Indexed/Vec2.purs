@@ -5,4 +5,4 @@ import Prelude
 data Vec2 = Vec2 Number Number
 
 renderVec2 :: Vec2 -> String
-renderVec2 (Vec2 x y) = show x <> " " <> show y
+renderVec2 (Vec2 x y) = show x <> " " <> show y <> " " 
