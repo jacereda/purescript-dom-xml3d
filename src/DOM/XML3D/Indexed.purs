@@ -4,10 +4,11 @@ import DOM.Event.Types (Event, MouseEvent)
 import DOM.HTML.Indexed (CSSPixel)
 import DOM.XML3D.Event.Types (FrameDrawnEvent)
 import DOM.XML3D.Indexed.AxisAngle (AxisAngle)
-import DOM.XML3D.Indexed.Data (Filter)
+import DOM.XML3D.Indexed.Data (Filter) as D
 import DOM.XML3D.Indexed.Light (LightModel)
 import DOM.XML3D.Indexed.Material (MatModel)
 import DOM.XML3D.Indexed.Mesh (MeshType)
+import DOM.XML3D.Indexed.Texture (Filter, Wrap)
 import DOM.XML3D.Indexed.Vec3 (Vec3)
 import DOM.XML3D.Indexed.View (ViewModel)
 
@@ -71,7 +72,7 @@ type XML3Dmesh = Global ( Material ( Data ( Pickable ( Transformable ( type :: M
 
 type XML3Dmodel = Global ( Material ( Data ( Pickable ( Transformable () ) ) ) )
 
-type XML3Ddata = Global ( Data ( compute :: String, filter :: Filter ) )
+type XML3Ddata = Global ( Data ( compute :: String, filter :: D.Filter ) )
 
 type XML3Ddataflow = Global ( Data ( out :: String ) )
 
@@ -93,7 +94,9 @@ type XML3Dbool = Global ( Named ( Keyed ( Value () ) ) )
 
 type XML3Dstring = Global ( Named ( Keyed ( Value () ) ) )
 
-type XML3Dtexture = Global ( Named ( Keyed ( Value () ) ) )
+type XML3Dtexture = Global ( Named ( Keyed ( Value ( wrap :: Wrap
+                                                   , filter :: Filter
+                                                   ) ) ) )
 
 type XML3Dtransform = Global ( Value ( Keyed ( scaleorientation :: AxisAngle
                                              , rotation :: AxisAngle
