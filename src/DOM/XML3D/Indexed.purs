@@ -16,6 +16,7 @@ type DOMString = String
 
 type Global r =
   ( id :: String
+  , style :: String
   | r
   )
 

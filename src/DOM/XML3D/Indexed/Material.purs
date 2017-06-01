@@ -1,17 +1,10 @@
 module DOM.XML3D.Indexed.Material where
 
-import Prelude
-import Halogen.HTML.Core (class IsProp)
-import Halogen.VDom.DOM.Prop (propFromString)
-
 data MatModel
   = Matte
   | Diffuse
   | Phong
   | Point
-
-instance matModelIsProp :: IsProp MatModel where
-  toPropValue = propFromString <<< renderMatModel
 
 renderMatModel :: MatModel -> String
 renderMatModel = case _ of

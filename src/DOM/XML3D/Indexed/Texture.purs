@@ -1,8 +1,6 @@
 module DOM.XML3D.Indexed.Texture where
 
 import Prelude
--- import Halogen.HTML.Core (class IsProp)
--- import Halogen.VDom.DOM.Prop (propFromString)
 
 data WrapMode
   = Repeat
@@ -19,9 +17,6 @@ data Wrap = Wrap WrapMode WrapMode
 renderWrap :: Wrap -> String
 renderWrap (Wrap s t) = renderWrapMode s <> " " <> renderWrapMode t
 
--- instance wrapIsProp :: IsProp Wrap where
---  toPropValue = propFromString <<< renderWrap
-  
 data MinFilter
   = MinNearest
   | MinLinear
@@ -53,5 +48,3 @@ data Filter = Filter MinFilter MagFilter
 renderFilter :: Filter -> String
 renderFilter (Filter min mag) = renderMinFilter min <> " " <> renderMagFilter mag
 
--- instance filterIsProp :: IsProp Filter where
---   toPropValue = propFromString <<< renderFilter
