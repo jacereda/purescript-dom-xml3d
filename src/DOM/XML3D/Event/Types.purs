@@ -18,7 +18,7 @@ timeStart :: FrameDrawnEvent -> Number
 timeStart = field ["timeStart"]
 
 timeEnd :: FrameDrawnEvent -> Number
-timeEnd = field ["timeStart"]
+timeEnd = field ["timeEnd"]
 
 renderTimeInMilliseconds :: FrameDrawnEvent -> Number
 renderTimeInMilliseconds = field ["renderTimeInMilliseconds"]
