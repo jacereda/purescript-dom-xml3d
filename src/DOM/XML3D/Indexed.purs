@@ -1,7 +1,7 @@
 module DOM.XML3D.Indexed where
 
 import DOM.Event.Types (Event, MouseEvent)
-import DOM.HTML.Indexed (CSSPixel)
+import DOM.HTML.Indexed (CSSPixel, HTMLvideo)
 import DOM.XML3D.Event.Types (FrameDrawnEvent)
 import DOM.XML3D.Indexed.AxisAngle (AxisAngle)
 import DOM.XML3D.Indexed.Data (Filter) as D
@@ -12,20 +12,20 @@ import DOM.XML3D.Indexed.Texture (Filter, Wrap)
 import DOM.XML3D.Indexed.Vec3 (Vec3)
 import DOM.XML3D.Indexed.View (ViewModel)
 
-type DOMString = String
 
 type Global r =
   ( id :: String
+  , class :: String
   , style :: String
   | r
   )
 
 type Transformable r = 
-  ( transform :: DOMString
+  ( transform :: String
   | r
   )
 
-type URI r = ( src :: DOMString | r )
+type URI r = ( src :: String | r )
 
 type Named r = ( name :: String | r )
 
@@ -35,9 +35,9 @@ type Value r = ( param :: Boolean | r )
 
 type Keyed r = ( key :: Number | r )
 
-type Including r = ( includes :: DOMString | r )
+type Including r = ( includes :: String | r )
 
-type Material r = ( material :: DOMString | r )
+type Material r = ( material :: String | r )
 
 type Pickable r = 
   ( onDoubleClick :: MouseEvent
@@ -56,7 +56,7 @@ type XML3Dxml3d =
   Global
   ( width :: CSSPixel
   , height :: CSSPixel
-  , view :: DOMString
+  , view :: String
   , onLoad :: Event
   , onFrameDrawn :: FrameDrawnEvent
   )
@@ -113,3 +113,5 @@ type XML3Dassetdata = Global ( Named ( Data ( Including () ) ) )
 type XML3Dassetmesh = Global ( Named ( Transformable ( Data ( Including ( Material ( type :: MeshType ) ) ) ) ) )
 
 type XML3Ddefs = Global ()
+
+type XML3Dvideo = HTMLvideo
